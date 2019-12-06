@@ -18,17 +18,13 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 
     @Override
     public Building save(Building building) {
-        entityManager.createQuery("Save from Position d where d.position=:position").setParameter("building" ,building)
-            .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.persist(building);
         return building;
     }
 
     @Override
     public void delete(Building building) {
-        entityManager.createQuery("delete from Building d where d.building=:building").setParameter("building",building)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.remove(building);
 
     }
 

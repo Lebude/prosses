@@ -37,8 +37,8 @@ public class Building_designController {
 
     @RequestMapping(value = "/designers", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Building_design> getBuilding_designByDesigners(@RequestBody @Valid String designers) {
-        building_designService.getBuilding_designByDesigners(designers);
-        return   new ResponseEntity<>(designers, HttpStatus.OK);
+        Building_design building_design=building_designService.getBuilding_designByDesigners(designers);
+        return   new ResponseEntity<>(building_design, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/topologies", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -20,9 +20,9 @@ public class WareHouse implements Serializable {
     private Employee_address employee_addressId;
 
 
-    /*@JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Product product;*/
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Product product;
 
     public int getId() {
         return id;

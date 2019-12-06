@@ -33,16 +33,13 @@ public class PositionRepositoryImpl implements PositionRepository {
 
     @Override
     public void save(Position position) {
-        entityManager.createQuery("save from Position d where d.position=:position").setParameter("position",position)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.persist(position);
+
     }
 
     @Override
     public void delete(Position position) {
-        entityManager.createQuery("delete from Position d where d.position=:position").setParameter("position", position)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.remove(position);
 
 
     }

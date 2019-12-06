@@ -18,14 +18,14 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee save(Employee employee) {
-        return null;
+        entityManager.persist(employee);
+        return employee;
+
     }
 
     @Override
     public void delete(Employee employee) {
-        entityManager.createQuery("delete from Department d where d.employee=:employee").setParameter("employee",employee)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.remove(employee);
 
     }
 

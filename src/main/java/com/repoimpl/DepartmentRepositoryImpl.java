@@ -18,17 +18,14 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     @Override
     public Department save(Department department) {
-        entityManager.createQuery("Save from Department d where d.department=:department").setParameter("department" ,department)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.persist(department);
         return department;
+
     }
 
     @Override
     public void delete(Long id) {
-        entityManager.createQuery("delete from Department d where d.id=:id").setParameter("id",id)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.remove(id);
     }
 
     @Override

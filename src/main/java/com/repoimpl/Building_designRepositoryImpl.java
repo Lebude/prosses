@@ -19,11 +19,12 @@ public class Building_designRepositoryImpl implements Building_designRepository 
 
     @Override
     public void save(Building_design building_design) {
+        entityManager.persist(building_design);
 
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id) { entityManager.remove(id);
 
     }
 

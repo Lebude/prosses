@@ -16,9 +16,9 @@ public class Department implements Serializable {
     private String departmentName;
 
 
-    /*@JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
-    @OneToMany(fetch = FetchType.EAGER)
-    private Employee employees;*/
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Employee employees;
 
 
     public String getDepartmentId(String s) {
@@ -37,13 +37,11 @@ public class Department implements Serializable {
         this.departmentName = departmentName;
     }
 
-
-
-    /*public Employee getEmployees() {
+    public Employee getEmployees() {
         return employees;
     }
 
     public void setEmployees(Employee employees) {
         this.employees = employees;
-    }*/
+    }
 }

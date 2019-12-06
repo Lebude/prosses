@@ -18,17 +18,13 @@ public class Employee_addressRepositoryImpl implements Employee_addressRepositor
 
     @Override
     public Employee_address save(Employee_address employee_address) {
-        entityManager.createQuery("Save from Employee_address d where d.employee_address=:employee_address").setParameter("employee_address" ,employee_address)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.persist(employee_address);
         return employee_address;
     }
 
     @Override
     public void delete(Employee_address employee_address) {
-        entityManager.createQuery("delete from Employee_address d where d.employee_address=:employee_address").setParameter("employee_address",employee_address)
-                .executeUpdate();
-        System.out.println("SUCCESS");
+        entityManager.remove(employee_address);
 
     }
 
